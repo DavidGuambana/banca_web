@@ -1,0 +1,80 @@
+
+.home-container {
+  width: 100vw; /* full width of the viewport */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-header {
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  background-color: white;
+  border-bottom: 1px solid #ccc;
+}
+
+.logo {
+  height: 50px;
+}
+
+.main-content {
+  height: 90vh;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.text-section {
+  max-width: 50%;
+  padding-left: 3rem;
+}
+
+.main-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #005548;
+}
+
+.main-subtitle {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  color: #333;
+}
+
+.floating-card {
+  background-color: #018c7c;
+  border-radius: 15px;
+  padding: 2rem;
+  color: white;
+  max-width: 400px;
+  width: 100%;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.search-box {
+  width: 250px;
+}
+
+.search-box .form-control {
+  box-shadow: none;
+  border-width: 2px;
+}
+
+.search-box i {
+  pointer-events: none; /* hace que no interfiera al escribir */
+  font-size: 1.2rem;
+}
+
+.icon-bank {
+  font-size: 2rem;
+  color: #0d6328; /* Azul institucional */
+}
