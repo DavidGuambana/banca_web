@@ -1,3 +1,74 @@
+/* Contenedor general de toda la vista */
+.login-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f9fa;
+}
+
+/* Encabezado superior */
+.login-header {
+  height: 15vh;
+  background-color: white;
+  border-bottom: 8px solid #217408;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family:  'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.9rem;
+  letter-spacing: 9px;
+  color: #0a560a;
+}
+.login-title {
+  height: 15vh;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family:  'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.9rem;
+  letter-spacing: 9px;
+  color: #0a560a;
+}
+
+
+/* Sección principal dividida en dos columnas */
+.login-main {
+  flex-grow: 1;
+  display: flex;
+}
+
+/* Sección izquierda con descripción */
+.login-description {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: #f1f1f1;
+}
+
+/* Sección derecha con formulario */
+.login-form-container {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+/* Formulario con sombra y bordes redondeados */
 .login-form {
+  width: 100%;
   max-width: 400px;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+.icon-bank {
+  font-size: 10rem;
+  color: #0d6328; /* Azul institucional */
 }
