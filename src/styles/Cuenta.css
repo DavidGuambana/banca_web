@@ -1,0 +1,42 @@
+/* Flecha de expandir/colapsar */
+.flecha {
+  font-size: 1.25rem;
+  color: #6b7280;
+  transition: color 0.2s;
+}
+.cuenta-header:hover .flecha {
+  color: #4338ca;
+}
+
+/* Títulos personalizados */
+.perfil-nombre { font-size: 1.75rem; margin: 0; }
+.perfil-username, .perfil-email, .perfil-fecha { margin: 0.25rem 0; color: #6b7280; }
+.cuentas-titulo { font-size: 1.25rem; margin-top: 2rem; color: #374151; }
+
+/* Tarjetas cuentas */
+.cuenta-card {
+  background-color: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 1rem;
+  transition: transform 0.2s;
+}
+.cuenta-card:hover {
+  transform: translateY(-4px);
+}
+.cuenta-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+.cuenta-label { font-size: 0.875rem; color: #9ca3af; margin: 0; }
+.cuenta-numero { font-size: 1.125rem; margin: 0.25rem 0; word-break: break-all; }
+
+/* Detalle expandido */
+.cuenta-detalle {
+  margin-top: 1rem;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 1rem;
+  color: #374151;
+}

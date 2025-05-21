@@ -1,0 +1,28 @@
+.card-icono {
+  width: 120px;
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  border-radius: 4px;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.card-icono img {
+  height: 60px;
+  object-fit: contain;
+  user-select: none;
+}
+
+.card-icono .nombre-icono {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.card-icono.seleccionado {
+  background-color: #d0f0ff;
+  border: 2px solid #007bff;
+}

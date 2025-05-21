@@ -1,30 +1,33 @@
 import React, { useState } from 'react';
 import '../styles/Login.css'; // Estilos personalizados
 import { loginUser } from '../services/services';
+import { useNavigate } from 'react-router-dom';
+import Security from './Security'; // Importar el componente de seguridad
 
 function Login() {
-  const [user, setUser] = useState(null);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+
   const [error, setError] = useState('');
+
+  const navigate = useNavigate();
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
     try {
       const userData = await loginUser(username, password);
-      setUser(userData);
+      navigate('/seguridad', { state: { usuario: userData } });
     } catch (err) {
       setError(err.message);
     }
   };
 
-  if (user) {
-    console.log(user);
-    return <div className="text-center mt-5">Bienvenido, {user.username}!</div>;
-  }
 
   return (
+    <>
+    
     <div className="login-container">
       {/* Sección 1: Encabezado */}
       <header className="login-header">
@@ -94,7 +97,9 @@ function Login() {
         </div>
       </div>
     </div>
+    </>
   );
+  
 }
 
 export default Login;
