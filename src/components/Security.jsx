@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { getIcons, API_BASE_URL } from '../services/services';
 import '../styles/Seguridad.css';
 import { useLocation, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 function Seguridad() {
   const navigate = useNavigate();
@@ -16,14 +17,13 @@ function Seguridad() {
     async function cargarIconos() {
       try {
         const datos = await getIcons();
-        // Barajar el array (shuffle)
         const mezclados = datos
           .map((a) => ({ sort: Math.random(), value: a }))
           .sort((a, b) => a.sort - b.sort)
           .map((a) => a.value);
         setIconos(mezclados);
       } catch {
-        // Ignorar errores
+        // Puedes manejar error si deseas
       }
     }
     cargarIconos();
@@ -38,13 +38,45 @@ function Seguridad() {
     const respuestaCorrecta = usuario.verificacion.respuesta;
     const idIconoCorrecto = usuario.verificacion.icono.idIcono;
 
-    if (
-      respuesta.trim().toLowerCase() === respuestaCorrecta.trim().toLowerCase() &&
-      iconoSeleccionado?.idIcono === idIconoCorrecto
-    ) {
-      navigate('/cuenta', { state: { usuario: usuario } });
+    // Validaciones con Swal
+    if (!respuesta.trim()) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Falta la respuesta',
+        text: 'Por favor responde la pregunta de seguridad.',
+      });
+      return;
+    }
+
+    if (!iconoSeleccionado) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Falta el ícono',
+        text: 'Por favor selecciona un ícono de seguridad.',
+      });
+      return;
+    }
+
+    const esRespuestaCorrecta = respuesta.trim().toLowerCase() === respuestaCorrecta.trim().toLowerCase();
+    const esIconoCorrecto = iconoSeleccionado.idIcono === idIconoCorrecto;
+
+    if (esRespuestaCorrecta && esIconoCorrecto) {
+      Swal.fire({
+        icon: 'success',
+        title: 'Validación exitosa',
+        text: 'Has pasado la validación de seguridad.',
+        confirmButtonText: 'Continuar',
+      }).then(() => {
+        navigate('/cuenta', { state: { usuario: usuario } });
+      });
     } else {
-      navigate('/login');
+      Swal.fire({
+        icon: 'error',
+        title: 'Validación fallida',
+        text: 'Respuesta o ícono incorrectos. Serás redirigido al login.',
+      }).then(() => {
+        navigate('/login');
+      });
     }
   };
 
@@ -54,7 +86,7 @@ function Seguridad() {
 
   return (
     <div className="container mt-4">
-      <h2>Validación de seguridad</h2>
+      <h2>Validación de seguridad <span role="img" aria-label="candado">🔒</span></h2>
 
       <form onSubmit={manejarEnvio}>
         <div className="mb-3">
@@ -90,9 +122,7 @@ function Seguridad() {
           iconos.map((icono) => (
             <div
               key={icono.idIcono}
-              className={`card-icono ${
-                iconoSeleccionado?.idIcono === icono.idIcono ? 'seleccionado' : ''
-              }`}
+              className={`card-icono ${iconoSeleccionado?.idIcono === icono.idIcono ? 'seleccionado' : ''}`}
               onClick={() => manejarClickIcono(icono)}
             >
               <img
@@ -111,4 +141,3 @@ function Seguridad() {
 }
 
 export default Seguridad;
-

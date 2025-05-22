@@ -14,7 +14,7 @@ function home() {
     <div className="home-container">
   {/* Encabezado */}
  <header className="home-header d-flex justify-content-between align-items-center px-4 py-3">
-  <h3 className="mb-0">Bienvenido al Banco de David</h3>
+  <h3 className="mb-0">Bienvenido al Banco de David y Ariel</h3>
 
   <div className="search-box position-relative">
     <input

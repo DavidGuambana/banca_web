@@ -1,4 +1,5 @@
-export const API_BASE_URL = 'http://35.238.210.66:8090/api';
+//export const API_BASE_URL = 'http://35.238.210.66:8090/api';
+export const API_BASE_URL = 'http://localhost:8080/api';
 
 // Obtener un usuario por username y password
 export async function loginUser(username, password) {
